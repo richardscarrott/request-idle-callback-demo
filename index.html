@@ -101,6 +101,9 @@
     <body>
         <div id="container"></div>
 		<div id="info">
+            <a style="font-size: 20px" href="https://github.com/richardscarrott/request-idle-callback-demo" target="_blank">requestIdleCallback demo</a>
+            <br />
+            <br />
             <a href="http://threejs.org" target="_blank">three.js css3d</a> - periodic table.
             <a href="https://plus.google.com/113862800338869870683/posts/QcFk5HrWran" target="_blank">info</a>.
         </div>
@@ -122,7 +125,12 @@
         <script type="text/javascript" src="animation.js"></script>
         <script type="text/javascript" src="script.js"></script>
         <script type="text/javascript">
-            init();
+            if ('requestIdleCallback' in window) {
+                window.alert('Toggle between "table", "sphere", "helix" and "grid" with "sync" checked to perform expensive work synchronously and with "sync" unchecked to perform the same expensive work asynchronously using `requestIdleCallback`.');
+                init();
+            } else {
+                window.alert('Your browser does not support `requestIdleCallback`, please try latest Chrome.');
+            }
         </script>
     </body>
 </html>

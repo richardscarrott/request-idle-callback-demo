@@ -43,7 +43,9 @@ function handleClick() {
         console.timeEnd('sync work');
     } else {
         console.time('deferred work');
-        doWorkDeferred(() => console.timeEnd('deferred work'));
+        doWorkDeferred(function() {
+            console.timeEnd('deferred work')
+        });
     }
 }
 
@@ -59,7 +61,7 @@ function init() {
     initAnimation();
     animate();
 
-    toggleCheckbox.addEventListener('change', e => {
+    toggleCheckbox.addEventListener('change', function(e) {
         SYNC = !!e.target.checked;
     });
 
